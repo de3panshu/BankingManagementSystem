@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minViewportHeight="700.0" minViewportWidth="1200.0" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="root" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.DashBoardController">
+   <content>
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="700.0" minWidth="1200.0" prefHeight="700.0" prefWidth="1300.0" styleClass="root">
+         <center>
+            <JFXTabPane styleClass="tabPaneOuter" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab styleClass="tabOuter" text="Account">
+                    <content>
+                        <JFXTabPane />
+                     </content>
+                     <content>
+                        <JFXTabPane styleClass="tabPaneInner">
+                           <tabs>
+                              <Tab styleClass="tabInner" text="All Accounts">
+                                 <content>
+                                    <TableView fx:id="accountTable" cache="true" editable="true" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
+                                      <columns>
+                                        <TableColumn fx:id="accountNumberCol" onEditStart="#accountEdit" prefWidth="200.0" text="Account Number" />
+                                        <TableColumn fx:id="cifNumberCol" prefWidth="200.0" text="CIF No" />
+                                          <TableColumn fx:id="accountTypeCol" prefWidth="150.0" text="Account Type" />
+                                          <TableColumn fx:id="accountCurrentBalanceCol" prefWidth="150.0" text="Current Balance" />
+                                      </columns>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab styleClass="tabInner" text="Update Account">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="653.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label text="Account Number" />
+                                                <TextField fx:id="updateAccountAccountNumber" prefHeight="25.0" prefWidth="230.0" />
+                                                <JFXButton onAction="#updateAccountSerchButtonActionEvent" ripplerFill="BLACK" styleClass="saveButton" text="Search" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="BOTTOM_CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <ImageView fx:id="updateAccountPersonImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                   <image>
+                                                      
+                                                   </image></ImageView>
+                                                <ImageView fx:id="updateAccountSignatureImage" fitHeight="58.0" fitWidth="224.0" pickOnBounds="true" visible="true">
+                                                   <image>
+                                                      
+                                                   </image></ImageView>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="30.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="220.0" text="Customer Name" />
+                                                <JFXTextField fx:id="updateAccountCustomerName" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="DOB" />
+                                                <JFXDatePicker fx:id="updateAccountDob" prefWidth="300.0" promptText="mm-dd-yyyy" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Contact" />
+                                                <JFXTextField fx:id="updateAccountContact" prefHeight="25.0" prefWidth="300.0" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Address" />
+                                                <JFXTextField fx:id="updateAccountAdrress" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Account Type" />
+                                                <JFXComboBox fx:id="updateAccountAccountType" disable="true" prefWidth="300.0" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Gender" />
+                                                <JFXComboBox fx:id="updateAccountGender" prefWidth="300.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="E-mail" />
+                                                <JFXTextField fx:id="updateAccountEmail" prefHeight="25.0" prefWidth="400.0" HBox.hgrow="ALWAYS" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="PAN No:" />
+                                                <JFXTextField fx:id="updateAccountPanNumber" editable="false" prefHeight="25.0" prefWidth="300.0" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Adhaar No" />
+                                                <JFXTextField fx:id="updateAccountAdhaarNumber" editable="false" prefHeight="25.0" prefWidth="300.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <JFXButton onAction="#updateAccountUpdateActionEvent" prefHeight="25.0" prefWidth="225.0" ripplerFill="BLACK" styleClass="saveButton" text="Update" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="50.0" right="50.0" />
+                                       </padding></VBox>
+                                 </content>
+                              </Tab>
+                              <Tab styleClass="tabInner" text="Create New Account">
+                                 <content>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                       <center>
+                                          <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+                                             <children>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="Customer Name :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountCustomerName" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="Account Number :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountAccountNumber" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="Account Type :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXComboBox fx:id="newAccountAccountType" prefHeight="25.0" prefWidth="291.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="Gender :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXRadioButton fx:id="newAccountMale" prefHeight="17.0" prefWidth="81.0" text="Male">
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="genderButtons" />
+                                                         </toggleGroup>
+                                                      </JFXRadioButton>
+                                                      <JFXRadioButton fx:id="newAccountFemale" text="Female" toggleGroup="$genderButtons" />
+                                                      <JFXRadioButton fx:id="newAccountOther" prefHeight="17.0" prefWidth="85.0" text="Other" toggleGroup="$genderButtons" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="DOB :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXDatePicker fx:id="newAccountDob" editable="false" prefWidth="291.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="Contact :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountContact" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="Address :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountAddress" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="E-mail :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountEmail" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="Adhaar Number :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountAdhaarNumber" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="PAN Number :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountPanNumber" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="CIF Number :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountCifNumber" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" fillHeight="false" prefHeight="43.0" prefWidth="448.0" spacing="30.0">
+                                                   <children>
+                                                      <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="140.0" text="Initial Deposit :">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <JFXTextField fx:id="newAccountInitialDeposit" prefHeight="37.0" prefWidth="291.0">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </HBox>
+                                                <JFXButton onAction="#newAccountCreateButtonActionEvent" prefWidth="150.0" styleClass="saveButton" text="Create">
+                                                   <VBox.margin>
+                                                      <Insets top="25.0" />
+                                                   </VBox.margin></JFXButton>
+                                             </children>
+                                             <padding>
+                                                <Insets top="20.0" />
+                                             </padding>
+                                          </VBox>
+                                       </center>
+                                       <right>
+                                          <VBox prefHeight="480.0" prefWidth="284.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <ImageView fx:id="newAccountPersonImage" fitHeight="206.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                         <image>
+                                                            
+                                                         </image>
+                                                      </ImageView>
+                                                      <HBox prefHeight="31.0" prefWidth="284.0" visible="true">
+                                                         <children>
+                                                            <Label fx:id="newAccountPersonImageFileName" prefHeight="30.0" prefWidth="221.0"  />
+                                                            <JFXButton fx:id="imageButton" onAction="#newAccountPersonImageBrowseButtonActionEvent" prefHeight="30.0" prefWidth="82.0" text="Browse" />
+                                                         </children>
+                                                      </HBox>
+                                                      <ImageView fx:id="newAccountSignatureImage" fitHeight="206.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                         <image>
+                                                            
+                                                         </image>
+                                                      </ImageView>
+                                                      <HBox prefHeight="31.0" prefWidth="284.0" visible="true">
+                                                         <children>
+                                                            <Label fx:id="newAccountSignatureImageFileName" prefHeight="30.0" prefWidth="221.0"  />
+                                                            <JFXButton fx:id="signatureImage" onAction="#newAccountSignatureImageBrowseButtonActionEvent" prefHeight="30.0" prefWidth="82.0" text="Browse" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </right></BorderPane>
+                                 </content>
+                              </Tab>
+                           </tabs></JFXTabPane>
+                     </content>
+                  </Tab>
+                  <Tab styleClass="tabOuter" text="Transaction">
+                     <content>
+                        <JFXTabPane styleClass="tabPaneInner">
+                           <tabs>
+                              <Tab styleClass="tabInner" text="All Transactions">
+                                 <content>
+                                    <TableView fx:id="transactionTable" prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn fx:id="transactionTableFrom" prefWidth="250.0" text="From" />
+                                          <TableColumn fx:id="transactionTableTo" prefWidth="250.0" text="To" />
+                                          <TableColumn fx:id="transactionTableDate" prefWidth="200.0" text="Date " />
+                                          <TableColumn fx:id="transactionTableAmount" prefWidth="150.0" text="Amount" />
+                                       </columns>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab styleClass="tabInner" text="Deposit">
+                                 <content>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label text="Account Number" />
+                                                <TextField fx:id="depositAccountNumber" prefHeight="25.0" prefWidth="230.0" />
+                                                <JFXButton onAction="#depositAccountNumberActionEvent" ripplerFill="BLACK" styleClass="saveButton" text="Search" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <ImageView fx:id="depositPersonImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                   <image>
+                                                      
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Customer Name :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="depositCustomerName" prefHeight="17.0" prefWidth="300.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Contact No :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="depositContactNumber" prefHeight="17.0" prefWidth="300.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Current Balance :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="depositCurrentBalance" prefHeight="17.0" prefWidth="300.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Deposit Amount :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXTextField fx:id="depositAmount" prefWidth="200.0" promptText="Enter Amount" />
+                                             </children>
+                                          </HBox>
+                                          <JFXButton onAction="#depositButtonActionEvent" prefWidth="200.0" styleClass="saveButton" text="Deposit" />
+                                       </children></VBox>
+                                 </content>
+                              </Tab>
+                              <Tab styleClass="tabInner" text="Withdraw">
+                                 <content>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label text="Account Number" />
+                                                <TextField fx:id="withdrawAccountNumber" prefHeight="25.0" prefWidth="230.0" />
+                                                <JFXButton onAction="#withdrawSearchActionEvent" ripplerFill="BLACK" styleClass="saveButton" text="Search" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <ImageView fx:id="withdrawPersonImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                   <image>
+                                                      
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Customer Name :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="withdrawCustomerName" prefHeight="17.0" prefWidth="300.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Contact No :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="withdrawContactNumber" prefHeight="17.0" prefWidth="300.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Current Balance :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="withdrawCurrentBalance" prefHeight="17.0" prefWidth="300.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Withdraw Amount :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXTextField fx:id="withdrawAmount" prefWidth="200.0" promptText="Enter Amount" />
+                                             </children>
+                                          </HBox>
+                                          <JFXButton onAction="#withdrawButtonActionEvent" prefWidth="200.0" styleClass="saveButton" text="Withdraw" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </Tab>
+                              <Tab styleClass="tabInner" text="Transfer">
+                                 <content>
+                                    <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                       <children>
+                                          <HBox alignment="CENTER" maxWidth="1.7976931348623157E308">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <Label text="Sender's Acccount Number" />
+                                                            <TextField fx:id="transferSenderAccountNumber" prefHeight="25.0" prefWidth="230.0" />
+                                                            <JFXButton onAction="#transferSenderSearchButtonActionEvent" ripplerFill="BLACK" styleClass="saveButton" text="Search" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <ImageView fx:id="transferSenderPersonImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                               <image>
+                                                                  
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Customer Name :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="transferSenderCustomerName" prefHeight="17.0" prefWidth="300.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Contact No :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="transferSenderContactNumber" prefHeight="17.0" prefWidth="300.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Current Balance :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="transferSenderCurrentBalance" prefHeight="17.0" prefWidth="300.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <Label text="Reciever's Acccount Number" />
+                                                            <TextField fx:id="transferReceiverAccountNumber" prefHeight="25.0" prefWidth="230.0" />
+                                                            <JFXButton onAction="#transferReceiverSearchActionEvent" ripplerFill="BLACK" styleClass="saveButton" text="Search" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <ImageView fx:id="transferReceiverPersonImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                               <image>
+                                                                  
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Customer Name :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="transferReceiverCustomerName" prefHeight="17.0" prefWidth="300.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Contact No :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="transferReceiverContactNumber" prefHeight="17.0" prefWidth="300.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                                         <children>
+                                                            <Label alignment="CENTER_RIGHT" prefWidth="150.0" text="Current Balance :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="transferReceiverCurrentBalance" prefHeight="17.0" prefWidth="300.0">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Transfer Amount :">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <JFXTextField fx:id="transferAmount" prefWidth="200.0" promptText="Enter Amount" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="70.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <JFXButton onAction="#transferButtonActionEvent" prefWidth="200.0" styleClass="saveButton" text="Transfer">
+                                             <VBox.margin>
+                                                <Insets top="25.0" />
+                                             </VBox.margin>
+                                          </JFXButton>
+                                       </children>
+                                       <padding>
+                                          <Insets top="50.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </JFXTabPane>
+                     </content>
+                  </Tab>
+                  <Tab styleClass="tabOuter" text="Customer">
+                     <content>
+                        <JFXTabPane>
+                           <tabs>
+                              <Tab styleClass="tabInner" text="All Customer">
+                                 <content>
+                                    <TableView fx:id="customerTable" editable="true" prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn fx:id="customerTableName"  prefWidth="200.0" text="Name" />
+                                          <TableColumn fx:id="customerTableGender" prefWidth="100.0" text="Gender" />
+                                          <TableColumn fx:id="customerTableDob" prefWidth="150.0" text="DOB" />
+                                          <TableColumn fx:id="customerTableAddress" prefWidth="200.0" text="Address" />
+                                          <TableColumn fx:id="customerTableContact" onEditStart="#customerEdit" prefWidth="150.0" text="Contact" />
+                                          <TableColumn fx:id="customerTableEmail" prefWidth="200.0" text="E-mail" />
+                                          <TableColumn fx:id="customerTableAdhaarNumber" prefWidth="150.0" text="Adhaar No." />
+                                          <TableColumn fx:id="customerTablePanNumber" prefWidth="150.0" text="PAN No." />
+                                       </columns>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab styleClass="tabInner" text="Profile">
+                                 <content>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label text="Contact Number" />
+                                                <TextField fx:id="customerProfileContactNumber" prefHeight="25.0" prefWidth="230.0" />
+                                                <JFXButton onAction="#customerProfileSearchButtonActionEvent" ripplerFill="BLACK" styleClass="saveButton" text="Search" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <ImageView fx:id="customerProfilePersonImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                   <image>
+                                                      
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="customerProfileSignatureImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="true">
+                                                   <image>
+                                                      
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Customer Name" />
+                                                <Label fx:id="customerProfileName" prefWidth="400.0" underline="true" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="DOB" />
+                                                <Label fx:id="customerProfileDob" prefWidth="300.0" underline="true" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Contact" />
+                                                <Label fx:id="customerProfileContact" prefWidth="300.0" underline="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Address" />
+                                                <Label fx:id="customerProfileAddress" prefWidth="400.0" underline="true" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Account Type" />
+                                                <Label fx:id="customerProfileAccoutType" prefWidth="300.0" underline="true" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Gender" />
+                                                <Label fx:id="customerProfileGender" prefWidth="300.0" underline="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="E-mail" />
+                                                <Label fx:id="customerProfileEmail" prefWidth="400.0" underline="true" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="PAN No" />
+                                                <Label fx:id="customerProfilePanNumber" prefWidth="300.0" underline="true" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Adhaar No:" />
+                                                <Label fx:id="customerProfileAdhaarNumber" prefWidth="300.0" underline="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="638.0" spacing="20.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Account Number" />
+                                                <Label fx:id="customerProfileAccountNumber" prefWidth="300.0" underline="true" />
+                                                <Label alignment="CENTER_RIGHT" prefWidth="200.0" text="Current Balance" />
+                                                <Label fx:id="customerProfileCurrentBalance" prefWidth="300.0" underline="true" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <JFXButton onAction="#customerProfileSeeButtonActionEvent" text="See All Transaction" textFill="#0e31f8" underline="true" />
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </JFXTabPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+         </center>
+      </BorderPane>
+   </content>
+</ScrollPane>

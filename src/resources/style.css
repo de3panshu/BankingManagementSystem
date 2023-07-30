@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 20, 2021, 9:45:26 AM
+    Author     : HD
+*/
+
+*
+{
+	-fx-font-size:16px;
+}
+.saveButton
+{
+    -fx-background-color: lightgreen;
+}
+.saveButton:hover
+{
+    -fx-background-color: green;
+}
+.cancelButton{
+    -fx-background-color: tomato;
+}
+.cancelButton:hover{
+    -fx-background-color: red;
+}
